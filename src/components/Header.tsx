@@ -1,4 +1,4 @@
-import '../styles/header.scss'
+import '../styles/header.scss';
 
 export function Header() {
   return (
@@ -7,5 +7,5 @@ export function Header() {
         <img src="/logo.svg" alt="to.do"/>
       </div>
     </header>
-  )
+  );
 }

@@ -34,10 +34,13 @@ section.task-list {
         padding: 12px 24px;
         
         border-radius: 8px;
-        border: 0;
         
         &::placeholder {
           color: var(--text-light)
+        }
+
+        &.invalid-title {
+          animation: invalid-title .2s 2;
         }
       }
 
@@ -111,7 +114,8 @@ section.task-list {
                 }
 
                 & ~ .checkmark:after {
-                  display: block;
+                  // display: block;
+                  transform: translateX(0) translateY(0) scale(1) rotate(45deg);
                 }
               } 
             }
@@ -124,18 +128,20 @@ section.task-list {
               height: 16px;
               background-color: var(--background);
               border-radius: 2px;
+              overflow: hidden;
           
               &:after {
                 content: "";
                 position: absolute;
-                display: none;
+                // display: none;
                 left: 6px;
                 top: 3px;
                 width: 3px;
                 height: 6px;
                 border: solid white;
                 border-width: 0 2px 2px 0;
-                transform: rotate(45deg);
+                transform: translateX(5px) translateY(-5px) scale(0) rotate(45deg);
+                transition: .5s all;
               }
             }
           }
@@ -157,5 +163,19 @@ section.task-list {
         }
       }
     } 
+  }
+}
+
+@keyframes invalid-title {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+
+  25% {
+    transform: translateX(-25px);
+  }
+
+  75% {
+    transform: translateX(25px);
   }
 }
